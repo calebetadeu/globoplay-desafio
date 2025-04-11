@@ -72,17 +72,5 @@ Para facilitar o processo, existem assets, app icons, ícones e paleta de cores 
 - [Lista de Favoritos](assets/screenshots/my-list.jpg)
 
 
-## **Processo de entrega**
 
----
 
-Após finalizar a implementação do desafio, abra um pull request para este repositório seguindo os passos abaixo:
-
-1. Faça um fork deste repositório, não clone este repositório diretamente;
-2. Os commit's e as alterações devem ser feitas no **SEU** fork;
-3. Envie um Pull Request;
-4. Deixe o fork público para facilitar a inspeção do código.
-
-### **ATENÇÃO**
-
-Não faça push diretamente para este repositório!
