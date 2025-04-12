@@ -1,4 +1,4 @@
-package com.calebetadeu.globoplaychallenge.core.presentation
+package com.calebetadeu.globoplaychallenge.core.presentation.components
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -24,26 +24,35 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.calebetadeu.globoplaychallenge.navigation.Home
+import com.calebetadeu.globoplaychallenge.navigation.MyList
 
-data class BottomNavigationItem(
+data class BottomNavigationItem<T : Any>(
     val title: String,
     val selectedIcon: ImageVector,
     val unselectedIcon: ImageVector,
+    val route: T
 )
 
 @Composable
-fun BottomBarGloboPlay() {
+fun BottomBarGloboPlay(
+    navController: NavController
+) {
     val items = listOf(
         BottomNavigationItem(
             title = "Ínicio",
             selectedIcon = Icons.Filled.Home,
             unselectedIcon = Icons.Outlined.Home,
+            route = Home
+
         ),
 
         BottomNavigationItem(
             title = "Minha Lista",
             selectedIcon = Icons.Filled.Star,
             unselectedIcon = Icons.Outlined.Star,
+            route = MyList
         )
     )
     var selectedItemIndex by rememberSaveable {
@@ -64,7 +73,7 @@ fun BottomBarGloboPlay() {
                 selected = selectedItemIndex == index,
                 onClick = {
                     selectedItemIndex = index
-
+                    navController.navigate(item.route)
                 },
                 label = {
                     Text(text = item.title, fontSize = 16.sp)
