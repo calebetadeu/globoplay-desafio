@@ -70,4 +70,6 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
 
     implementation(libs.google.fonts)
+    implementation(libs.navigation.compose)
+
 }
