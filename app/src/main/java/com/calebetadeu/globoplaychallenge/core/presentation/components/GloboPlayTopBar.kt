@@ -1,4 +1,4 @@
-package com.calebetadeu.globoplaychallenge.home.presentation.components
+package com.calebetadeu.globoplaychallenge.core.presentation.components
 
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
