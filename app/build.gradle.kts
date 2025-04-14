@@ -1,3 +1,13 @@
+import java.util.Properties
+import java.io.FileInputStream
+
+val localPropertiesFile = rootProject.file("local.properties")
+val localProperties = Properties()
+if (localPropertiesFile.exists()) {
+    localProperties.load(FileInputStream(localPropertiesFile))
+}
+val API_KEY: String = localProperties.getProperty("API_KEY") ?: ""
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -21,7 +31,9 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField("String", "BASE_URL", "\"https://api.coincap.io/v2/\"")
+            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
+            buildConfigField("String", "API_KEY", "\"$API_KEY\"")
+
         }
         release {
             isMinifyEnabled = false
@@ -29,8 +41,8 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String", "BASE_URL", "\"https://api.coincap.io/v2/\"")
-
+            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
+            buildConfigField("String", "API_KEY", "\"$API_KEY\"")
         }
     }
     compileOptions {
@@ -47,7 +59,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.core.splashscreen)
@@ -59,7 +70,6 @@ dependencies {
     coreLibraryDesugaring(libs.desugar.jdk.libs)
 
     implementation(libs.bundles.koin)
-
     implementation(libs.bundles.ktor)
 
     testImplementation(libs.junit)
@@ -71,5 +81,5 @@ dependencies {
 
     implementation(libs.google.fonts)
     implementation(libs.navigation.compose)
-
+    implementation(libs.bundles.coil)
 }

@@ -1,6 +1,6 @@
 package com.calebetadeu.globoplaychallenge.core.data.networking
 
-import com.calebetadeu.globoplaychallenge.BuildConfig
+import com.calebetadeu.globoplaychallenge.BuildConfig.BASE_URL
 import com.calebetadeu.globoplaychallenge.core.domain.util.NetworkError
 import com.calebetadeu.globoplaychallenge.core.domain.util.Result
 import io.ktor.client.call.NoTransformationFoundException
@@ -13,9 +13,9 @@ import kotlin.coroutines.coroutineContext
 
 fun constructUrl(url: String): String {
     return when {
-        url.contains(BuildConfig.BASE_URL) -> url
-        url.startsWith("/") -> BuildConfig.BASE_URL + url.drop(1)
-        else -> BuildConfig.BASE_URL + url
+        url.contains(BASE_URL) -> url
+        url.startsWith("/") -> BASE_URL + url.drop(1)
+        else -> BASE_URL + url
     }
 }
 
@@ -27,7 +27,7 @@ suspend inline fun <reified T> responseToResult(
         in 200..299 -> {
             try {
                 Result.Success(response.body<T>())
-            } catch(e: NoTransformationFoundException) {
+            } catch(_: NoTransformationFoundException) {
                 Result.Error(NetworkError.SERIALIZATION)
             }
         }
@@ -44,11 +44,11 @@ suspend inline fun <reified T> safeCall(
 ): Result<T, NetworkError> {
     val response = try {
         execute()
-    } catch(e: UnresolvedAddressException) {
+    } catch(_: UnresolvedAddressException) {
         return Result.Error(NetworkError.NO_INTERNET)
-    } catch(e: SerializationException) {
+    } catch(_: SerializationException) {
         return Result.Error(NetworkError.SERIALIZATION)
-    } catch(e: Exception) {
+    } catch(_: Exception) {
         coroutineContext.ensureActive()
         return Result.Error(NetworkError.UNKNOWN)
     }
