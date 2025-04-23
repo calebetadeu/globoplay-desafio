@@ -1,12 +1,12 @@
-package com.calebetadeu.globoplaychallenge.home.data.movie
+package com.calebetadeu.globoplaychallenge.home.data.repositories
 
 import com.calebetadeu.globoplaychallenge.core.domain.util.NetworkError
-import com.calebetadeu.globoplaychallenge.home.domain.movie.RemoteMovieDataSource
-import com.calebetadeu.globoplaychallenge.home.domain.movie.models.Movie
-import com.calebetadeu.globoplaychallenge.home.domain.movie.repository.MovieRepository
 import com.calebetadeu.globoplaychallenge.core.domain.util.Result
 import com.calebetadeu.globoplaychallenge.core.domain.util.map
-import com.calebetadeu.globoplaychallenge.home.data.movie.mappers.toMovie
+import com.calebetadeu.globoplaychallenge.home.data.mappers.toMovie
+import com.calebetadeu.globoplaychallenge.home.domain.dataSource.RemoteMovieDataSource
+import com.calebetadeu.globoplaychallenge.home.domain.models.Movie
+import com.calebetadeu.globoplaychallenge.home.domain.repositories.MovieRepository
 
 class MovieRepositoryImpl(
     private val remoteMovieDataSource: RemoteMovieDataSource,

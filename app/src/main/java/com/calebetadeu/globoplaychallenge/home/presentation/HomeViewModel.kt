@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.calebetadeu.globoplaychallenge.core.domain.util.onError
 import com.calebetadeu.globoplaychallenge.core.domain.util.onSuccess
-import com.calebetadeu.globoplaychallenge.home.domain.movie.useCase.GetPopularMoviesUseCase
+import com.calebetadeu.globoplaychallenge.home.domain.useCase.GetPopularMoviesUseCase
 import com.calebetadeu.globoplaychallenge.home.presentation.models.toMovieUi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted

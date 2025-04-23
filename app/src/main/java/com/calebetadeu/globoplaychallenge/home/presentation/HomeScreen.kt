@@ -15,7 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.calebetadeu.globoplaychallenge.home.presentation.components.ContentListRow
 import com.calebetadeu.globoplaychallenge.home.presentation.models.ContentTv
-import com.calebetadeu.globoplaychallenge.home.presentation.movie.MovieScreen
+import com.calebetadeu.globoplaychallenge.home.presentation.screens.MovieScreen
 import com.calebetadeu.globoplaychallenge.ui.theme.GloboPlayChallengeTheme
 import org.koin.androidx.compose.koinViewModel
 

@@ -1,8 +1,8 @@
-package com.calebetadeu.globoplaychallenge.home.domain.movie.repository
+package com.calebetadeu.globoplaychallenge.home.domain.repositories
 
 import com.calebetadeu.globoplaychallenge.core.domain.util.NetworkError
 import com.calebetadeu.globoplaychallenge.core.domain.util.Result
-import com.calebetadeu.globoplaychallenge.home.domain.movie.models.Movie
+import com.calebetadeu.globoplaychallenge.home.domain.models.Movie
 
 
 interface MovieRepository {

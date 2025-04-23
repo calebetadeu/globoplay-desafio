@@ -1,6 +1,6 @@
 package com.calebetadeu.globoplaychallenge.home.presentation.models
 
-import com.calebetadeu.globoplaychallenge.home.domain.movie.models.Movie
+import com.calebetadeu.globoplaychallenge.home.domain.models.Movie
 import java.text.NumberFormat
 import java.util.Locale
 

@@ -1,7 +1,7 @@
-package com.calebetadeu.globoplaychallenge.home.data.movie.mappers
+package com.calebetadeu.globoplaychallenge.home.data.mappers
 
-import com.calebetadeu.globoplaychallenge.home.data.movie.dto.MovieDto
-import com.calebetadeu.globoplaychallenge.home.domain.movie.models.Movie
+import com.calebetadeu.globoplaychallenge.home.data.dto.MovieDto
+import com.calebetadeu.globoplaychallenge.home.domain.models.Movie
 
 
 fun MovieDto.toMovie(): Movie {

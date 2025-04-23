@@ -1,4 +1,4 @@
-package com.calebetadeu.globoplaychallenge.home.domain.movie.models
+package com.calebetadeu.globoplaychallenge.home.domain.models
 
 data class Movie(
     val id: Int? = 0,

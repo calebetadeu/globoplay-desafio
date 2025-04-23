@@ -2,11 +2,11 @@ package com.calebetadeu.globoplaychallenge.home.di
 
 import com.calebetadeu.globoplaychallenge.BuildConfig
 import com.calebetadeu.globoplaychallenge.core.data.networking.HttpClientFactory
-import com.calebetadeu.globoplaychallenge.home.data.movie.MovieRepositoryImpl
-import com.calebetadeu.globoplaychallenge.home.data.movie.network.KtorRemoteMovieDataSourceImpl
-import com.calebetadeu.globoplaychallenge.home.domain.movie.RemoteMovieDataSource
-import com.calebetadeu.globoplaychallenge.home.domain.movie.repository.MovieRepository
-import com.calebetadeu.globoplaychallenge.home.domain.movie.useCase.GetPopularMoviesUseCase
+import com.calebetadeu.globoplaychallenge.home.data.repositories.MovieRepositoryImpl
+import com.calebetadeu.globoplaychallenge.home.data.network.KtorRemoteMovieDataSourceImpl
+import com.calebetadeu.globoplaychallenge.home.domain.dataSource.RemoteMovieDataSource
+import com.calebetadeu.globoplaychallenge.home.domain.repositories.MovieRepository
+import com.calebetadeu.globoplaychallenge.home.domain.useCase.GetPopularMoviesUseCase
 import com.calebetadeu.globoplaychallenge.home.presentation.HomeViewModel
 import io.ktor.client.engine.cio.CIO
 import org.koin.core.module.dsl.viewModelOf

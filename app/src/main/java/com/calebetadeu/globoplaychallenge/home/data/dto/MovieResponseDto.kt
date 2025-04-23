@@ -1,4 +1,4 @@
-package com.calebetadeu.globoplaychallenge.home.data.movie.dto
+package com.calebetadeu.globoplaychallenge.home.data.dto
 
 
 import kotlinx.serialization.SerialName

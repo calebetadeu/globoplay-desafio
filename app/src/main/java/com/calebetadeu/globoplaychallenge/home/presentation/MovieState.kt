@@ -1,4 +1,4 @@
-package com.calebetadeu.globoplaychallenge.home.presentation.movie
+package com.calebetadeu.globoplaychallenge.home.presentation
 
 import com.calebetadeu.globoplaychallenge.home.presentation.models.MovieUi
 

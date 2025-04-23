@@ -1,11 +1,11 @@
-package com.calebetadeu.globoplaychallenge.home.presentation.movie
+package com.calebetadeu.globoplaychallenge.home.presentation.screens
 
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.calebetadeu.globoplaychallenge.home.domain.movie.models.Movie
+import com.calebetadeu.globoplaychallenge.home.domain.models.Movie
 import com.calebetadeu.globoplaychallenge.home.presentation.components.ContentItem
 import com.calebetadeu.globoplaychallenge.home.presentation.models.MovieUi
 import com.calebetadeu.globoplaychallenge.home.presentation.models.toMovieUi
