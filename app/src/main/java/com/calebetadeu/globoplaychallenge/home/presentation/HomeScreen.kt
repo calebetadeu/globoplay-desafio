@@ -1,29 +1,35 @@
 package com.calebetadeu.globoplaychallenge.home.presentation
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
+import com.calebetadeu.globoplaychallenge.home.presentation.components.ContentListRow
+import com.calebetadeu.globoplaychallenge.home.presentation.models.ContentTv
+import com.calebetadeu.globoplaychallenge.home.presentation.screens.MovieScreen
 import com.calebetadeu.globoplaychallenge.ui.theme.GloboPlayChallengeTheme
+import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeRoot(
     modifier: Modifier,
-    viewModel: HomeViewModel = viewModel()
+    viewModel: HomeViewModel = koinViewModel()
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     HomeScreen(
         modifier = modifier,
-        state = state,
-        onAction = viewModel::onAction
+        state = state
     )
 }
 
@@ -31,13 +37,43 @@ fun HomeRoot(
 fun HomeScreen(
     modifier: Modifier,
     state: HomeState,
-    onAction: (HomeAction) -> Unit,
 ) {
-    Column(
-        modifier = modifier.fillMaxSize()
-    ) {
-        Text("Home")
+    val scrollState = rememberScrollState()
+
+    val listOfContent = (1..6).map {
+        ContentTv(
+            title = "Séries",
+            contents = {
+                MovieScreen(
+                    modifier = modifier,
+                    movieList = state.moviesState.popularMovies
+                )
+            }
+        )
     }
+
+    if (state.moviesState.isLoading) {
+        Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+            CircularProgressIndicator()
+        }
+
+    }else{
+        Column(
+            modifier = modifier
+                .fillMaxSize()
+                .verticalScroll(scrollState),
+        ) {
+            listOfContent.forEach {
+                ContentListRow(
+                    title = it.title,
+                    contents = it.contents,
+                    modifier = modifier
+                )
+            }
+
+        }
+    }
+
 
 
 }
@@ -45,11 +81,10 @@ fun HomeScreen(
 @Preview
 @Composable
 private fun Preview() {
-    GloboPlayChallengeTheme{
-       HomeScreen(
-           state = HomeState(),
-           onAction = {},
-           modifier = Modifier
-       )
-   }
+    GloboPlayChallengeTheme {
+        HomeScreen(
+            state = HomeState(),
+            modifier = Modifier
+        )
+    }
 }
