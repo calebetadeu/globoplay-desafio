@@ -19,11 +19,11 @@ val homeModule = module {
             httpClient = get()
         )
     }
-    single { GetPopularMoviesUseCase(movieRepository = get()) }
+    factory { GetPopularMoviesUseCase(movieRepository = get()) }
     single<MovieRepository> {
         MovieRepositoryImpl(
             remoteMovieDataSource = get(),
-            apiKey =  BuildConfig.BASE_URL
+            apiKey =  BuildConfig.API_KEY
         )
     }
     viewModelOf(::HomeViewModel)

@@ -24,7 +24,7 @@ fun Movie.toMovieUi(): MovieUi {
         voteCount = voteCount,
     )
 }
-fun Double.toDisplayableNumber(): DisplayableNumber {
+private fun Double.toDisplayableNumber(): DisplayableNumber {
     val formatter = NumberFormat.getNumberInstance(Locale.getDefault()).apply {
         minimumFractionDigits = 2
         maximumFractionDigits = 2

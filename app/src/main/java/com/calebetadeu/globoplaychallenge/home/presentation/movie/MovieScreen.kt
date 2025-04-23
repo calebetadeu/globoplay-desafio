@@ -1,6 +1,7 @@
 package com.calebetadeu.globoplaychallenge.home.presentation.movie
 
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -16,8 +17,8 @@ fun MovieScreen(
     movieList: List<MovieUi>
 ) {
     LazyRow {
-        items(movieList.size) { movie ->
-            ContentItem(movie = movieList[movie], modifier = modifier, onClick = {
+        items(movieList, key = {movie-> movie.id?: 0 }) { movie ->
+            ContentItem(movie = movie, modifier = modifier, onClick = {
             })
         }
     }
